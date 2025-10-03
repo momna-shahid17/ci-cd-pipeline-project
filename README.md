@@ -1,47 +1,56 @@
 # 🚀 CI/CD Pipeline: Flask + Docker + GitHub Actions + Terraform + AWS
 
 ## Overview 🎯
-This project demonstrates a complete **CI/CD pipeline** using **GitHub Actions**, **Docker**, **Terraform**, and **AWS EC2** to automate the deployment of a **Flask web application**. It is an end-to-end DevOps pipeline that includes:
+This project demonstrates a **full-stack CI/CD pipeline** using **GitHub Actions**, **Docker**, **Terraform**, and **AWS EC2** to automate the deployment of a **Flask web application**. The pipeline handles everything from building and testing the application to deploying it on a cloud server, showcasing modern DevOps practices.
 
-1. **Flask app** running in a Docker container
-2. **GitHub Actions** for CI/CD automation
-3. **Terraform** to provision **AWS EC2** instances
-4. **Docker Hub** to store and manage container images
+### Tech Stack:
+- **Flask**: A Python-based micro web framework for building the app.
+- **Docker**: For containerizing the application.
+- **GitHub Actions**: For continuous integration and deployment (CI/CD).
+- **AWS EC2**: Cloud infrastructure for hosting the app.
+- **Terraform**: Infrastructure as code (IaC) for provisioning AWS resources.
+- **Docker Hub**: For storing and managing the Docker image.
 
-This project is a **real-world application** of DevOps best practices, showcasing how to automate build, testing, deployment, and cloud infrastructure provisioning.
-
-## 💡 Tech Stack
-- **Flask** - A Python-based micro web framework
-- **Docker** - For containerization of the Flask app
-- **GitHub Actions** - Continuous integration and deployment (CI/CD)
-- **AWS EC2** - Cloud infrastructure for hosting the app
-- **Terraform** - Infrastructure as Code (IaC) for managing AWS resources
-- **Docker Hub** - Container registry for storing images
+---
 
 ## 🚀 Project Flow
-1. **Flask app** is developed and containerized using Docker.
-2. **GitHub Actions** builds and tests the Docker image automatically whenever new code is pushed to the `main` branch.
-3. The **Docker image** is pushed to **Docker Hub**.
-4. **Terraform** provisions an **AWS EC2** instance and installs Docker.
-5. The **GitHub Actions** workflow SSHs into the EC2 instance and deploys the app by pulling the latest image from Docker Hub.
+1. **Flask app** developed and containerized using Docker.
+2. **GitHub Actions** is triggered upon code push to the `main` branch.
+3. **Docker image** is built and pushed to **Docker Hub**.
+4. **AWS EC2** instance is provisioned using **Terraform**.
+5. **GitHub Actions** SSHs into the EC2 instance and deploys the Docker container.
 
 ---
 
 ## 🔧 Prerequisites
 
-### 🚀 Environment Setup
-Before you begin, ensure the following tools are installed:
-- **Git** for version control
-- **Docker** for containerization
-- **Terraform** for provisioning AWS resources
-- **AWS CLI** for managing AWS resources
-- **Python** for the Flask app
+### Environment Setup
+Make sure you have the following installed:
+- **Git**: For version control
+- **Docker**: For containerization
+- **Terraform**: For provisioning AWS resources
+- **AWS CLI**: For managing AWS resources
+- **Python**: To run the Flask app
 
-You will also need:
-- A **GitHub account** (to store your code and run GitHub Actions)
-- A **Docker Hub account** (to store Docker images)
-- An **AWS account** (to provision cloud resources)
+You’ll also need accounts for:
+- **GitHub**: To store and manage your code repository.
+- **Docker Hub**: To store the Docker image.
+- **AWS**: To provision cloud resources.
 
-### 🛠️ GitHub Secrets
-For secure access, you need to configure the following secrets in your GitHub repositor
+### GitHub Secrets
+In your GitHub repository, you need to configure the following secrets under **Settings → Secrets**:
 
+- **DOCKERHUB_USERNAME**: Your Docker Hub username.
+- **DOCKERHUB_TOKEN**: Your Docker Hub access token.
+- **EC2_HOST**: Public IP address of the EC2 instance (output from Terraform).
+- **EC2_USER**: `ubuntu` (for Ubuntu AMI) or `ec2-user` (for Amazon Linux).
+- **EC2_SSH_PRIVATE_KEY**: The private key content from your SSH keypair for EC2.
+
+---
+
+## 🖥️ Running the Project Locally
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/ci-cd-pipeline-project.git
+cd ci-cd-pipeline-project
