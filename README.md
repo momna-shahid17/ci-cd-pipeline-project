@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/momna-shahid17/momna-shahid17/blob/main/banner.png" alt="Momna Shahid — DevOps & Cloud Engineer Banner" width="100%"/>
+  <img src="https://github.com/momna-shahid17/ci-cd-pipeline-project/blob/main/banner.png" alt="Momna Shahid — DevOps & Cloud Engineer Banner" width="100%"/>
 </p>
 
 # 🚀 CI/CD Pipeline: Flask + Docker + GitHub Actions + Terraform + AWS
